@@ -5,14 +5,14 @@ include 'connection.php';
 $myquery = "SELECT * FROM student";
 
 $result = mysqli_query($conn,$myquery);
-
+$allData= array();
 if($result)
 {
-	while($row = mysqli_fetch_assoc($result))
-	{
-		$alldata[] = $row;
-	}
 
+	while($row= mysqli_fetch_assoc($result)){
+		$alldata[]=$row;
+	}
+	
 	echo json_encode($alldata);
 }
 else
